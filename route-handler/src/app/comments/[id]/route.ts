@@ -1,4 +1,16 @@
 import { comments } from "../data";
+
+
+/* 
+    localhost:3000/comments
+    result 
+    [
+     {
+        "id": 1,
+        "text": "nurain  fith comment "
+     }
+    ]
+*/
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
@@ -6,7 +18,14 @@ export async function GET(
   const comment = comments.find((comment) => comment.id == parseInt(params.id));
   return Response.json(comment);
 }
+/* 
+localhost:3000/comments/3
+result 
+{
+  "text": "nurain resolve the issue of api " 
+}
 
+*/
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string } }
